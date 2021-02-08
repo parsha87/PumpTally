@@ -1,0 +1,593 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="card px-2">
+			<div class="card-header">
+				<h4 class="card-title">Sale</h4>
+			</div>
+			<div class="card-body">
+				<input type="hidden" id="id" [(ngModel)]="this.saleInfo.id" name="id" #name="ngModel" value="" />
+				<input type="hidden" id="createdBy" [(ngModel)]="this.saleInfo.createdBy" name="createdBy"
+					#name="ngModel" value="" />
+				<input type="hidden" id="createdOn" [(ngModel)]="this.saleInfo.createdOn" name="createdOn"
+					#name="ngModel" value="" />
+				<div class="row">
+					<div class="col-md-2 px-1">
+						<div class="form-group">
+							<label>Date</label>
+							<input class="form-control" placeholder="dd/mm/yyyy" name="d2" #c2="ngModel"
+								[(ngModel)]="selectedDate" ngbDatepicker #d2="ngbDatepicker" (click)="d2.toggle()">
+						</div>
+					</div>
+					<div class="col-md-2 px-1 mt-4">
+						<div class="form-group">
+							<button class="btn btn-sm btn-warning" (click)="loadList()">
+								<i class="nc-icon nc-refresh-69"></i>
+							</button>
+						</div>
+					</div>
+					<div class="col-md-6 pr-1 mt-3">
+						<div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="model">
+							<label ngbButtonLabel class="btn-info">
+								<input ngbButton type="radio" [value]="1" (click)="open($event, 'opt1')"
+									[checked]="this.showOpt1"> First Shift </label> &nbsp;&nbsp;
+							<label ngbButtonLabel class="btn-info">
+								<input ngbButton type="radio" value="2" (click)="open($event, 'opt2')"
+									[checked]="this.showOpt2"> Second Shift </label> &nbsp;&nbsp;
+							<label ngbButtonLabel class="btn-info">
+								<input ngbButton type="radio" [value]="3" (click)="open($event, 'opt3')"
+									[checked]="this.showOpt3"> Third Shift </label>
+						</div>
+					</div>
+					<div class="col-md-2">
+							<h4 style="color: crimson;"><b>Shift - {{this.selectedShift}}</b></h4>
+					</div>
+				</div>
+
+				<div class="row">
+					<h5><b>MS Meter/Dip</b></h5>
+				</div>
+				<div class="row">
+
+					<div class="col-md-6 border">
+						<table>
+							<thead class="table table-bordered">
+								<th>MS Meter 1</th>
+								<th>MS Meter 2</th>
+								<th>MS DIP</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+								</tr>
+								<tr>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+								</tr>
+								<tr>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="col-md-6 border">
+						<table class="table table-bordered">
+							<thead>
+								<th>MS Meter 3</th>
+								<th>MS Meter 4</th>
+								<th>MS DIP</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+								</tr>
+								<tr>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+								</tr>
+								<tr>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.saleInfo.qty" name="ms1" #name="ngModel"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<h5><b>HSD Meter/Dip</b></h5>
+				<div class="row">
+
+					<div class="col-md-6 border">
+						<table class="table table-bordered">
+							<thead>
+								<th>HSD Meter 1</th>
+								<th>HSD Meter 2</th>
+								<th>HSD DIP</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input class="form-control" OnlydecimalDirective="true" id="hsdmeter1"
+											[(ngModel)]="this.hSDMeter.hsdmeter1" name="hsdmeter1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="hsdmeter2"
+											[(ngModel)]="this.hSDMeter.hsdmeter2" name="hsdmeter2" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="hsddip1Opening"
+											[(ngModel)]="this.hSDMeter.hsddip1Opening" name="hsddip1Opening" #name="ngModel"></td>
+								</tr>
+								<tr>
+									<td><input class="form-control" OnlydecimalDirective="true" id="hsdmeterclosing1"
+											[(ngModel)]="this.hSDMeter.hsdmeteropening1" name="hsdmeterclosing1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="hsdmeterclosing1"
+											[(ngModel)]="this.hSDMeter.hsdmeteropening2" name="hsdmeterclosing2" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="hsdmeterclosing2"
+											[(ngModel)]="this.hSDMeter.hsddip1" name="ms1" #name="ngModel"></td>
+								</tr>
+								<tr>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.hSDMeter.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.hSDMeter.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.hSDMeter.qty" name="ms1" #name="ngModel"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="col-md-6 border">
+						<table class="table table-bordered">
+							<thead>
+								<th>HSD Meter 3</th>
+								<th>HSD Meter 4</th>
+								<th>HSD DIP</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.hSDMeter.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.hSDMeter.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.hSDMeter.qty" name="ms1" #name="ngModel"></td>
+								</tr>
+								<tr>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.hSDMeter.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.hSDMeter.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.hSDMeter.qty" name="ms1" #name="ngModel"></td>
+								</tr>
+								<tr>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.hSDMeter.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.hSDMeter.qty" name="ms1" #name="ngModel"></td>
+									<td><input class="form-control" OnlydecimalDirective="true" id="ms1"
+											[(ngModel)]="this.hSDMeter.qty" name="ms1" #name="ngModel"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+
+				</div>
+
+				<div class="row mt-5">
+
+					<div class="col-md-6 border">
+						<div class="row">
+							<div class="col-md-12 pr-1">
+								<h5><b>Add Sale</b></h5>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Product</label>
+									<select class="form-control" id="product" required name="product" id="qty"
+										[(ngModel)]="this.saleInfo.productId" #name="ngModel"
+										(change)="onChange($event)">
+										<option value="" selected disabled>Select Product</option>
+										<option [value]="li.id" *ngFor="let li of productList">{{li.codeNo}} -
+											{{li.productName}} </option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label>Qty</label>
+									<input class="form-control" OnlydecimalDirective="true" id="qty"
+										[(ngModel)]="this.saleInfo.qty" name="qty" #name="ngModel">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label>Qty Purchased</label>
+									<input class="form-control" OnlydecimalDirective="true" id="qtyPurchased"
+										[(ngModel)]="this.saleInfo.qtyPurchased" name="qtyPurchased" #name="ngModel">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label>Rate</label>
+									<input class="form-control" OnlydecimalDirective="true" id="rate"
+										[(ngModel)]="this.saleInfo.rate" name="rate" #name="ngModel">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<button class="btn btn-info mt-4" (click)="addSale()">Add</button>
+							</div>
+						</div>
+						<div class="row mt-1 px-1">
+							<table class="table table-bordered table-sm">
+								<thead>
+									<th>Product Name</th>
+									<th>Qty Sold</th>
+									<th>Qty Purchased</th>
+									<th>Rate</th>
+									<th>Ammount</th>
+									<th>Actions</th>
+								</thead>
+								<tbody>
+									<tr *ngFor="let sale of this.salesList;;let i = index">
+										<td> <span [hidden]="sale.inedit">{{sale.productName}}</span>
+											<select id="productId_{{ i }}" #name="ngModel" class="form-control"
+												[hidden]="!sale.inedit" [(ngModel)]="sale.productId"
+												name="productId_{{ i }}">
+												<option [ngValue]="0" selected disabled>Select Event Type</option>
+												<option [ngValue]="k.id" *ngFor="let k of productList">
+													{{k.productName}}
+												</option>
+											</select>
+										</td>
+										<td> <span [hidden]="sale.inedit">{{sale.qty}}</span>
+											<input OnlydecimalDirective="true" [hidden]="!sale.inedit"
+												class="form-control mt-1" type="text" [(ngModel)]="sale.qty"
+												#name="ngModel" name="qty_{{ i }}" (keyup)="multiplyrate(i)" />
+										</td>
+										<td> <span [hidden]="sale.inedit">{{sale.qtyPurchased}}</span>
+											<input OnlydecimalDirective="true" [hidden]="!sale.inedit"
+												class="form-control mt-1" type="text" [(ngModel)]="sale.qtyPurchased"
+												#name="ngModel" name="qtyPurchased_{{ i }}" (keyup)="multiplyrate(i)" />
+										</td>
+										<td> <span [hidden]="sale.inedit">{{sale.rate}}</span>
+											<input OnlydecimalDirective="true" [hidden]="!sale.inedit"
+												class="form-control mt-1" type="text" [(ngModel)]="sale.rate"
+												#name="ngModel" name="rate_{{ i }}" (keyup)="multiplyrate(i)" />
+										</td>
+										<td><span [hidden]="sale.inedit">{{sale.amount}}</span>
+											<input [hidden]="!sale.inedit" class="form-control mt-1" type="text"
+												[(ngModel)]="sale.amount" [readonly]="true" #name="ngModel"
+												name="amount_{{ i }}" />
+										</td>
+										<td>
+											<button [hidden]="sale.inedit" type="button"
+												class="btn btn-info mr-2 btn-sm" (click)="onEditClick($event, i,sale)">
+												<span><i class="nc-icon nc-share-66"></i>
+												</span></button>
+											<button [hidden]="!sale.inedit" type="button"
+												class="btn btn-success mr-2 btn-sm" (click)="UpdateSales(sale,i)"
+												data-toggle="modal" data-target="#editModal">
+												<span><i class="nc-icon nc-check-2"></i>
+												</span></button>
+											<button class="btn btn-danger mr-2 btn-sm" type="button"
+												(click)="deleteSale(sale,i)">
+												<span><i class="nc-icon nc-simple-remove"></i>
+												</span></button>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th id="total" colspan="3">Total :</th>
+										<td><b><span [innerHtml]="getSalesTotal()"></span></b></td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+
+					</div>
+					<div class="col-md-6 px-4 border">
+
+
+						<div class="row">
+							<div class="col-md-12 pr-1">
+								<h5><b>Details of Voucher + Bills + Cards</b></h5>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-7 px-1">
+								<div class="form-group">
+									<label>Description</label>
+									<input class="form-control" type="text" id="description"
+										[(ngModel)]="this.voucherInfo.description" name="description" #name="ngModel"
+										value="">
+								</div>
+							</div>
+							<div class="col-md-3 pr-1">
+								<div class="form-group">
+									<label>Ammount</label>
+									<input OnlydecimalDirective="true" class="form-control" type="text" id="ammount"
+										[(ngModel)]="this.voucherInfo.ammount" name="ammount" #name="ngModel" value="">
+								</div>
+							</div>
+							<div class="col-md-2 px-1">
+								<button class="btn btn-info mt-4" (click)="addVoucher()">Add</button>
+							</div>
+						</div>
+						<div class="row mt-1 px-1">
+							<table class="table table-bordered table-sm">
+								<thead>
+									<th>Details of Voucher + Bills + Cards</th>
+									<th>Ammount</th>
+									<th>Actions</th>
+								</thead>
+								<tbody>
+									<tr *ngFor="let model of this.voucherList;;let i = index">
+										<td> <span [hidden]="model.inedit">{{model.description}}</span>
+											<input [hidden]="!model.inedit" class="form-control mt-1" type="text"
+												[(ngModel)]="model.description" #name="ngModel"
+												name="description_{{ i }}" (keyup)="multiplyrate(i)" />
+										</td>
+										<td> <span [hidden]="model.inedit">{{model.ammount}}</span>
+											<input OnlydecimalDirective="true" [hidden]="!model.inedit"
+												class="form-control mt-1" type="text" [(ngModel)]="model.ammount"
+												#name="ngModel" name="ammount_{{ i }}" (keyup)="multiplyrate(i)" />
+										</td>
+										<td>
+											<button [hidden]="model.inedit" type="button"
+												class="btn btn-info mr-2 btn-sm"
+												(click)="onVoucherEditClick($event, i,model)">
+												<span><i class="nc-icon nc-ruler-pencil"></i>
+												</span></button>
+											<button [hidden]="!model.inedit" type="button"
+												class="btn btn-success mr-2 btn-sm" (click)="UpdateVoucher(model,i)"
+												data-toggle="modal" data-target="#editModal">
+												<span><i class="nc-icon nc-check-2"></i>
+												</span></button>
+											<button class="btn btn-danger mr-2 btn-sm" type="button"
+												(click)="deleteVoucher(model,i)">
+												<span><i class="nc-icon nc-simple-delete"></i>
+												</span></button>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th id="total" colspan="1">Total :</th>
+										<td><b><span [innerHtml]="getvoucherTotal()"></span></b></td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-md-6 px-4 border">
+						<h4><b>Pump Cash</b></h4>
+						<div class="row">
+							<div class="col-md-7 px-1">
+								<div class="form-group">
+									<label>Description</label>
+									<input class="form-control" type="text" id="description"
+										[(ngModel)]="this.pumpInfo.description" name="description" #name="ngModel"
+										value="">
+								</div>
+							</div>
+							<div class="col-md-3 pr-1">
+								<div class="form-group">
+									<label>Ammount</label>
+									<input OnlydecimalDirective="true" class="form-control" type="text" id="amount"
+										[(ngModel)]="this.pumpInfo.amount" name="amount" #name="ngModel" value="">
+								</div>
+							</div>
+							<div class="col-md-1 px-1">
+								<button class="btn btn-info mt-4" (click)="addPumpbill()">Add</button>
+							</div>
+						</div>
+						<div class="row mt-1 px-1">
+							<table class="table table-bordered table-sm">
+								<thead>
+									<th>Description</th>
+									<th>Ammount</th>
+									<th>Actions</th>
+								</thead>
+								<tbody>
+									<tr *ngFor="let model of this.pumpList;;let i = index">
+										<td>
+											<span [hidden]="model.inedit">{{model.description}}</span>
+											<input [hidden]="!model.inedit" class="form-control mt-1" type="text"
+												[(ngModel)]="model.description" #name="ngModel"
+												name="description_{{ i }}" />
+										</td>
+										<td>
+											<span [hidden]="model.inedit">{{model.amount}}</span>
+											<input OnlydecimalDirective="true" [hidden]="!model.inedit"
+												class="form-control mt-1" type="text" [(ngModel)]="model.amount"
+												#name="ngModel" name="amount_{{ i }}" />
+										</td>
+										<td>
+											<button [hidden]="model.inedit" type="button"
+												class="btn btn-info mr-2 btn-sm"
+												(click)="onPumpEditClick($event, i,model)">
+												<span><i class="nc-icon nc-ruler-pencil"></i>
+												</span></button>
+
+											<button [hidden]="!model.inedit" type="button"
+												class="btn btn-success mr-2 btn-sm" (click)="UpdatePumpBill(model,i)"
+												data-toggle="modal" data-target="#editModal">
+												<span><i class="nc-icon nc-check-2"></i>
+												</span></button>
+											<button class="btn btn-danger mr-2 btn-sm" type="button"
+												(click)="deletePumpBill(model,i)">
+												<span><i class="nc-icon nc-simple-delete"></i>
+												</span></button>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th id="total" colspan="1">Total :</th>
+										<td><b><span [innerHtml]="getpumpTotal()"></span></b></td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+					<div class="col-md-6 px-4 border">
+						<h4><b>Biscuit Cash</b></h4>
+						<div class="row">
+							<div class="col-md-7 px-1">
+								<div class="form-group">
+									<label>Description</label>
+									<input class="form-control" type="text" id="description"
+										[(ngModel)]="this.biscuitInfo.description" name="description" #name="ngModel"
+										value="">
+								</div>
+							</div>
+							<div class="col-md-3 pr-1">
+								<div class="form-group">
+									<label>Ammount</label>
+									<input OnlydecimalDirective="true" class="form-control" type="text" id="amount"
+										[(ngModel)]="this.biscuitInfo.amount" name="amount" #name="ngModel" value="">
+								</div>
+							</div>
+							<div class="col-md-1 px-1">
+								<button class="btn btn-info mt-4" (click)="addBiscuit()">Add</button>
+							</div>
+						</div>
+						<div class="row mt-1 px-1">
+							<table class="table table-bordered table-sm">
+								<thead>
+									<th>Description</th>
+									<th>Ammount</th>
+									<th>Actions</th>
+								</thead>
+								<tbody>
+									<tr *ngFor="let model of this.biscuitList;;let i = index">
+										<td>
+											<span [hidden]="model.inedit">{{model.description}}</span>
+											<input [hidden]="!model.inedit" class="form-control mt-1" type="text"
+												[(ngModel)]="model.description" #name="ngModel"
+												name="description_{{ i }}" />
+										</td>
+										<td>
+											<span [hidden]="model.inedit">{{model.amount}}</span>
+											<input OnlydecimalDirective="true" [hidden]="!model.inedit"
+												class="form-control mt-1" type="text" [(ngModel)]="model.amount"
+												#name="ngModel" name="amount_{{ i }}" />
+										</td>
+										<td>
+											<button [hidden]="model.inedit" type="button"
+												class="btn btn-info mr-2 btn-sm"
+												(click)="onBiscuitEditClick($event, i,model)">
+												<span><i class="nc-icon nc-ruler-pencil"></i>
+												</span></button>
+
+											<button [hidden]="!model.inedit" type="button"
+												class="btn btn-success mr-2 btn-sm" (click)="UpdateBiscuit(model,i)"
+												data-toggle="modal" data-target="#editModal">
+												<span><i class="nc-icon nc-check-2"></i>
+												</span></button>
+											<button class="btn btn-danger mr-2 btn-sm" type="button"
+												(click)="deleteBiscuit(model,i)">
+												<span><i class="nc-icon nc-simple-delete"></i>
+												</span></button>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th id="total" colspan="1">Total :</th>
+										<td><b><span [innerHtml]="getbiscuitTotal()"></span></b></td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div style="font-size: 16px;font-weight: 600;" class="justify-content-right mt-3">
+					<div class="row">
+						<div class="col-md-3">
+							Total of this Sheet Rs.
+						</div>
+						<div class="col-md-3 justify-content-right">
+							<span>{{this.getSalesTotal()}}</span>
+						</div>
+					</div>
+					<hr />
+					<div class="row">
+						<div class="col-md-3">
+							Add Money RECD Rs.
+						</div>
+						<div class="col-md-3 justify-content-right">
+							<span>{{this.getpumpTotal()+ this.getbiscuitTotal()}}</span>
+						</div>
+					</div>
+					<hr />
+					<div class="row">
+						<div class="col-md-3">
+							Grand TOTAL Rs.
+						</div>
+						<div class="col-md-3 justify-content-right">
+							<span>
+								{{getGrandTotal()}}
+							</span>
+						</div>
+					</div>
+					<hr />
+					<div class="row">
+						<div class="col-md-3">
+							Less Vouchers Rs.
+						</div>
+						<div class="col-md-3 justify-content-right">
+							<span>{{this.getvoucherTotal()}}</span>
+						</div>
+					</div>
+					<hr />
+					<div class="row">
+						<div class="col-md-3">
+							Net Amount given Rs.
+						</div>
+						<div class="col-md-3 justify-content-right">
+							<span>{{this.getNetAmountGiven()}}</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="update ml-auto mr-auto">
+						<button type="submit" class="btn btn-primary btn-round">Update Profile</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

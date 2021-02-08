@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card px-2">
+            <div class="card-header">
+                <h4 class="card-title">Product</h4>
+            </div>
+            <div class="card-body">
+                <form #formData="ngForm" (ngSubmit)="addProduct(formData)">
+                    <input type="hidden" id="id" [(ngModel)]="this.productInfo.id" name="id" #name="ngModel" value="" />
+                    <div class="row mt-5">
+
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12 pr-1">
+                                    <h5><b>Add Product</b></h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Code No</label>
+                                        <input [disabled]="this.isEdit" class="form-control" type="text"  id="codeNo"
+                                            [(ngModel)]="this.productInfo.codeNo" name="codeNo" #name="ngModel">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Product Name</label>
+                                        <input [disabled]="this.isEdit" class="form-control" type="text" id="productName" [(ngModel)]="this.productInfo.productName"
+                                            name="productName" #name="ngModel">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Pack/Unit</label>
+                                        <input class="form-control" type="text" id="packUnit" [(ngModel)]="this.productInfo.packUnit"
+                                            name="packUnit" #name="ngModel">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Qty</label>
+                                        <input class="form-control" OnlydecimalDirective="true" id="qty"
+                                            [(ngModel)]="this.productInfo.qty" name="qty" #name="ngModel">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Purchase Price</label>
+                                        <input class="form-control" OnlydecimalDirective="true" id="purchasePrice"
+                                            [(ngModel)]="this.productInfo.purchasePrice" name="purchasePrice" #name="ngModel">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Sales Price</label>
+                                        <input class="form-control" OnlydecimalDirective="true" id="salesPrice"
+                                            [(ngModel)]="this.productInfo.salesPrice" name="salesPrice" #name="ngModel">
+                                    </div>
+                                </div>                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                            <button type="submit" class="btn btn-primary btn-round">Save</button>
+                            <button type="button" class="btn btn-danger btn-round" routerLink="/product">Close</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

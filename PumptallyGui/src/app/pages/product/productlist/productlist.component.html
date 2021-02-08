@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card px-2">
+            <div class="card-header">
+                <h4 class="card-title">Product</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 float-right justify-content-right">
+                        <button class="btn btn-info pull-right float-right justify-content-right"
+                            routerLink="/productaddedit" [queryParams]="{ id: 0, isEdit: 0 }" skipLocationChange>
+                            Add Product
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row mt-1 px-1">
+                    <table class="table table-bordered table-sm">
+                        <thead>
+                            <th>Code No</th>
+                            <th>Product Name</th>
+                            <th>Qty</th>
+                            <th>Purchase Price</th>
+                            <th>Sales Price</th>
+                            <th>Actions</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let pr of this.productList;;let i = index">
+                                <td>{{pr.codeNo}}</td>
+                                <td>{{pr.productName}}</td>
+                                <td>{{pr.qty}}</td>
+                                <td>{{pr.purchasePrice}}</td>
+                                <td>{{pr.salesPrice}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-info mr-2 btn-sm" routerLink="/productaddedit"
+                                        [queryParams]="{ id: pr.id, isEdit: 1 }">
+                                        <span><i class="nc-icon nc-share-66"></i>
+                                        </span></button>
+                                    <button class="btn btn-danger mr-2 btn-sm" type="button"
+                                        (click)="deleteProduct(pr,i)">
+                                        <span><i class="nc-icon nc-simple-remove"></i>
+                                        </span></button>
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
